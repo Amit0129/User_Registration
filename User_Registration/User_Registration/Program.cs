@@ -12,8 +12,10 @@
                 Console.WriteLine("1. Registration of First name");
                 Console.WriteLine("2. Registration of Last name");
                 Console.WriteLine("3. Registration of Simple Email");
+                Console.WriteLine("4. Registration of Mobile Number");
                 Console.WriteLine("0. Exit");
                 int choice = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("****************************************");
                 switch (choice)
                 {
                     case 0:
@@ -27,6 +29,9 @@
                         break;
                     case 3:
                         validator.EmailCheck();
+                        break;
+                    case 4:
+                        validator.MobileNumberCheck();
                         break;
                     default:
                         break;
