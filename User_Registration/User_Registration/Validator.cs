@@ -33,5 +33,25 @@ namespace User_Registration
                 }
             }
         }
+        public void LastNameCheck()
+        {
+            bool check = true;
+            while (check)
+            {
+                Console.WriteLine("Enter Last Name");
+                string lastName = Console.ReadLine();
+                string lstNamePattern = "^[A-Z][A-Za-z]{2,}$";
+                if (Validate(lastName, lstNamePattern))
+                {
+                    Console.WriteLine($"The Last Name of The Person is {lastName}");
+                    check = false;
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Enter a valid Last Name Where first letter must be in capital and it contain minimun three charectar");
+                }
+            }
+        }
     }
 }
