@@ -102,7 +102,7 @@ namespace User_Registration
             {
                 Console.WriteLine("Enter Password\n");
                 string password = Console.ReadLine();
-                string passwordPattern = "^[A-Za-z0-9!@.#$%_]{8,}$";
+                string passwordPattern = "^(?=.*[A-Z])[A-Za-z0-9!@#.$%_]{8,}$";
                 if (Validate(password, passwordPattern))
                 {
                     Console.WriteLine($"The passwoed is {password} \n");
