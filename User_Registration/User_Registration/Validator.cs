@@ -100,9 +100,9 @@ namespace User_Registration
             bool check = true;
             while (check)
             {
-                Console.WriteLine("Enter Password\n");
+                Console.WriteLine("Enter Password");
                 string password = Console.ReadLine();
-                string passwordPattern = "^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])[A-Za-z0-9!@#.$%_]{8,}$";
+                string passwordPattern = "^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=[^!@#.$%_]*[!@#.$%_][^!@#.$%_]*$)[A-Za-z0-9!@#$%_]{8,}$";
                 if (Validate(password, passwordPattern))
                 {
                     Console.WriteLine($"The passwoed is {password}");
@@ -111,7 +111,7 @@ namespace User_Registration
                 }
                 else
                 {
-                    Console.WriteLine("Enter a valid Password that have minimum 8 Characters and Atlist one upper case and lower case Chareacter \n");
+                    Console.WriteLine("Enter a valid Password that have minimum 8 Characters and Atlist one upper case and lower case Chareacter and exatly one Special charector");
                 }
             }
         }

@@ -13,7 +13,7 @@
                 Console.WriteLine("2. Registration of Last name");
                 Console.WriteLine("3. Registration of Simple Email");
                 Console.WriteLine("4. Registration of Mobile Number");
-                Console.WriteLine("5. Registration of Password Minimum \n   Eight Charecter and Atlest one Upper case");
+                Console.WriteLine("5. Registration of Password Minimum \n   Eight Charecter and Atlest one Upper case \n   And exactly one special charector");
                 Console.WriteLine("0. Exit");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("****************************************");
