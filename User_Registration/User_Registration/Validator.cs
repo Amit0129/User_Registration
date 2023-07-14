@@ -61,7 +61,7 @@ namespace User_Registration
                 Console.WriteLine("Enter your Mail Id\n");
                 string emailId = Console.ReadLine();
 
-                string emailIdPattern = @"^[a-zA-Z]{3,}([._+-][a-zA-Z]+)*[@][a-zA-Z]{2,}[.][a-zA-Z]{2,3}([.][a-zA-Z]{2,3})?$";
+                string emailIdPattern = @"^[a-zA-Z0-9]+([._+-][0-9a-zA-Z]+)*@[a-zA-Z0-9]+.[a-zA-Z]{2,3}([.][a-zA-Z]{2,3})?$";
                 if (Validate(emailId, emailIdPattern))
                 {
                     Console.WriteLine($"The Email id is valid\n");
