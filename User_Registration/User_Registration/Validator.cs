@@ -9,111 +9,105 @@ namespace User_Registration
 {
     public class Validator
     {
-        public bool Validate(string input, string pattern)
+        public bool FirstNameCheck(string firstName)
         {
-            return Regex.IsMatch(input, pattern);
-        }
-        public void FirstNameCheck()
-        {
-            bool check = true;
-            while (check)
+            try
             {
-                Console.WriteLine("Enter First Name\n");
-                string firstName = Console.ReadLine();
                 string fstNamePattern = "^[A-Z][A-Za-z]{2,}$";
-                if (Validate(firstName, fstNamePattern))
+                if (Regex.IsMatch(firstName, fstNamePattern))
                 {
-                    Console.WriteLine($"The First Name of The Person is {firstName}\n");
-                    check = false;
-                    break;
+                    return true;
                 }
                 else
                 {
-                    Console.WriteLine("Enter a valid FirstName Where first letter must be in capital and it contain minimun three charectar\n");
+                    return false;
                 }
             }
-        }
-        public void LastNameCheck()
-        {
-            bool check = true;
-            while (check)
+            catch (Exception e)
             {
-                Console.WriteLine("Enter Last Name\n");
-                string lastName = Console.ReadLine();
+                Console.WriteLine(e.Message);
+            }
+            return false;
+        }
+        public bool LastNameCheck(string lastName)
+        {
+            try
+            {
                 string lstNamePattern = "^[A-Z][A-Za-z]{2,}$";
-                if (Validate(lastName, lstNamePattern))
+                if (Regex.IsMatch(lastName, lstNamePattern))
                 {
-                    Console.WriteLine($"The Last Name of The Person is {lastName}\n");
-                    check = false;
-                    break;
+                    return true;
                 }
                 else
                 {
-                    Console.WriteLine("Enter a valid Last Name Where first letter must be in capital and it contain minimun three charectar\n");
+                    return false;
                 }
             }
-        }
-        public void EmailCheck()
-        {
-            bool check = true;
-            while (check)
+            catch (Exception e)
             {
-                Console.WriteLine("Enter your Mail Id\n");
-                string emailId = Console.ReadLine();
-
+                Console.WriteLine(e.Message);
+            }
+            return false;
+        }
+        public bool EmailCheck(string emailId)
+        {
+            try
+            {
                 string emailIdPattern = @"^[a-zA-Z0-9]+([._+-][0-9a-zA-Z]+)*@[a-zA-Z0-9]+.[a-zA-Z]{2,3}([.][a-zA-Z]{2,3})?$";
-                if (Validate(emailId, emailIdPattern))
+                if (Regex.IsMatch(emailId, emailIdPattern))
                 {
-                    Console.WriteLine($"The Email id is valid\n");
-                    check = false;
-                    break;
+                    return true;
                 }
                 else
                 {
-                    Console.WriteLine("Enter a valid Email Id\n");
+                    return false;
                 }
             }
-        }
-
-        public void MobileNumberCheck()
-        {
-            bool check = true;
-            while (check)
+            catch (Exception e)
             {
-                Console.WriteLine("Enter Mobile Number\n");
-                string mobileNumber = Console.ReadLine();
-                string mobNumberPattern = "^[0-9]{2}[ ][6-9][0-9]{9}$";
-                if (Validate(mobileNumber, mobNumberPattern))
-                {
-                    Console.WriteLine($"The Mobile Number is {mobileNumber}\n");
-                    check = false;
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine("Enter a valid Mobile Number\n");
-                }
+                Console.WriteLine(e.Message);
             }
+            return false; 
         }
-        public void PasswordCheck()
+        public bool MobileNumberCheck(string mobileNumber)
         {
-            bool check = true;
-            while (check)
+                try
+                {
+                    string mobNumberPattern = "^[0-9]{2}[ ][6-9][0-9]{9}$";
+                    if (Regex.IsMatch(mobileNumber, mobNumberPattern))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                catch(Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+                return false;
+        }
+        public bool PasswordCheck(string password)
+        {
+            try
             {
-                Console.WriteLine("Enter Password");
-                string password = Console.ReadLine();
                 string passwordPattern = "^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=[^!@#.$%_]*[!@#.$%_][^!@#.$%_]*$)[A-Za-z0-9!@#$%_]{8,}$";
-                if (Validate(password, passwordPattern))
+                if (Regex.IsMatch(password, passwordPattern))
                 {
-                    Console.WriteLine($"The passwoed is {password}");
-                    check = false;
-                    break;
+                    return true;
                 }
                 else
                 {
-                    Console.WriteLine("Enter a valid Password that have minimum 8 Characters and Atlist one upper case and lower case Chareacter and exatly one Special charector");
+                    return false;
                 }
             }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            return false;
         }
     }
 }

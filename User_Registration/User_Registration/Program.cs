@@ -23,19 +23,29 @@
                         doOrNot= false;
                         break;
                     case 1:
-                        validator.FirstNameCheck();
+                        Console.WriteLine("Enter First Name\n");
+                        string firstName = Console.ReadLine();
+                        Console.WriteLine(validator.FirstNameCheck(firstName));
                         break;
                     case 2:
-                        validator.LastNameCheck();
+                        Console.WriteLine("Enter Last Name\n");
+                        string lastName = Console.ReadLine();
+                        Console.WriteLine(validator.LastNameCheck(lastName));
                         break;
                     case 3:
-                        validator.EmailCheck();
+                        Console.WriteLine("Enter your Mail Id\n");
+                        string emailId = Console.ReadLine();
+                        Console.WriteLine(validator.EmailCheck(emailId));
                         break;
                     case 4:
-                        validator.MobileNumberCheck();
+                        Console.WriteLine("Enter Mobile Number\n");
+                        string mobileNumber = Console.ReadLine();
+                        Console.WriteLine(validator.MobileNumberCheck(mobileNumber));
                         break;
                     case 5:
-                        validator.PasswordCheck();
+                        Console.WriteLine("Enter Password");
+                        string password = Console.ReadLine();
+                        Console.WriteLine(validator.PasswordCheck(password));
                         break;
                     default:
                         break;
