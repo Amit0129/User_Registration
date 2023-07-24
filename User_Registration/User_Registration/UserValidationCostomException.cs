@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace User_Registration
 {
-    public class UserValidationCoutomException : Exception
+    public class UserValidationCostomException : Exception
     {
         public enum ExceptionType
         {
@@ -15,7 +15,7 @@ namespace User_Registration
             INVALID_INPUT
         }
         private readonly ExceptionType type;
-        public UserValidationCoutomException(ExceptionType type,string message) : base(message)
+        public UserValidationCostomException(ExceptionType type,string message) : base(message)
         {
             this.type = type;
         }

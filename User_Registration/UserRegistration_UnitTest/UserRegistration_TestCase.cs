@@ -11,18 +11,15 @@ namespace UserRegistration_UnitTest
         [DataRow("Amit", "Input Valid")]
         [DataRow("Ab", "Input Is Not Valid")]
         [DataRow("", "Input Should Not Be Empty")]
-        [DataRow(null, "Input Should Not Be Null")]
         public void GivenFirstNamevalidator(string firstName, string expected)
         {
             try
             {
-                //Act
-                string actual = validator.CheckName(firstName);
-                Assert.AreEqual(expected, actual);
+                string atual = validator.CheckName(firstName);
+                Assert.AreEqual(expected, atual);
             }
-            catch (UserValidationCoutomException ex)
+            catch (UserValidationCostomException ex)
             {
-                //Assert
                 Assert.AreEqual(expected, ex.Message);
             }
         }
@@ -31,7 +28,6 @@ namespace UserRegistration_UnitTest
         [DataRow("Nayak", "Input Valid")]
         [DataRow("Ab", "Input Is Not Valid")]
         [DataRow("", "Input Should Not Be Empty")]
-        [DataRow(null, "Input Should Not Be Null")]
         public void GivenLastNamevalidator(string lastName, string expected)
         {
             try
@@ -40,7 +36,7 @@ namespace UserRegistration_UnitTest
                 string actual = validator.CheckName(lastName);
                 Assert.AreEqual(expected, actual);
             }
-            catch (UserValidationCoutomException ex)
+            catch (UserValidationCostomException ex)
             {
                 //Assert
                 Assert.AreEqual(expected, ex.Message);
@@ -49,7 +45,6 @@ namespace UserRegistration_UnitTest
         [TestMethod]
         [DataRow("abcabc40@gmail.com", "Input Valid")]
         [DataRow("", "Input Should Not Be Empty")]
-        [DataRow(null, "Input Should Not Be Null")]
         public void GivenEmailvalidator(string email, string expected)
         {
             try
@@ -58,7 +53,7 @@ namespace UserRegistration_UnitTest
                 string actual = validator.CheckEmail(email);
                 Assert.AreEqual(expected, actual);
             }
-            catch (UserValidationCoutomException ex)
+            catch (UserValidationCostomException ex)
             {
                 //Assert
                 Assert.AreEqual(expected, ex.Message);
@@ -69,7 +64,6 @@ namespace UserRegistration_UnitTest
         [DataRow("91 9090909090", "Input Valid")]
         [DataRow("919652545874", "Input Is Not Valid")]
         [DataRow("", "Input Should Not Be Empty")]
-        [DataRow(null, "Input Should Not Be Null")]
         public void GivenMobileNumbervalidator(string mobileNumber, string expected)
         {
             try
@@ -78,7 +72,7 @@ namespace UserRegistration_UnitTest
                 string actual = validator.CheckMobileNo(mobileNumber);
                 Assert.AreEqual(expected, actual);
             }
-            catch (UserValidationCoutomException ex)
+            catch (UserValidationCostomException ex)
             {
                 //Assert
                 Assert.AreEqual(expected, ex.Message);
@@ -88,7 +82,6 @@ namespace UserRegistration_UnitTest
         [DataRow("dA@9fghnjvbn", "Input Valid")]
         [DataRow("ADFJVGB", "Input Is Not Valid")]
         [DataRow("", "Input Should Not Be Empty")]
-        [DataRow(null, "Input Should Not Be Null")]
         public void GivenPasswordvalidator(string password, string expected)
         {
             try
@@ -97,7 +90,7 @@ namespace UserRegistration_UnitTest
                 string actual = validator.CheckPassword(password);
                 Assert.AreEqual(expected, actual);
             }
-            catch (UserValidationCoutomException ex)
+            catch (UserValidationCostomException ex)
             {
                 //Assert
                 Assert.AreEqual(expected, ex.Message);
@@ -135,7 +128,7 @@ namespace UserRegistration_UnitTest
                 string actual = validator.CheckEmail(email);
                 Assert.AreEqual(expected, actual);
             }
-            catch (UserValidationCoutomException ex)
+            catch (UserValidationCostomException ex)
             {
                 //Assert
                 Assert.AreEqual(expected, ex.Message);

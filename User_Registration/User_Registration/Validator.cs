@@ -9,84 +9,92 @@ namespace User_Registration
 {
     public class Validator
     {
+        public Regex ValidateName = new Regex(@"^[A-Z][a-z]{2,}$");
+        public Regex ValidateEmail = new Regex("^[0-9a-zA-Z]+[./+_-]{0,1}[0-9a-zA-Z]+[@][a-zA-Z0-9-]+[.][a-zA-Z]{2,}([.][a-zA-Z]{2,}){0,1}$");
+        public Regex ValidateMobile = new Regex("^[0-9]{2}[ ][6-9][0-9]{9}$");
+        public Regex Validatepassword = new Regex("^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=[^!@#$%_]*[!@#$%_][^!@#$%_]*$)[A-Za-z0-9!@#$%_]{8,}$");
         public string CheckName(string name)
         {
-            string validateName = "^[A-Z][a-z]{2,}$";
+            bool NamePattern(string FirstNamePattern) => ValidateName.IsMatch(name);
+            bool result = NamePattern(name);
             try
             {
                 if (name.Equals(string.Empty))
                 {
-                    throw new UserValidationCoutomException(UserValidationCoutomException.ExceptionType.EMPTY_INPUT, "Input Should Not Be Empty");
+                    throw new UserValidationCostomException(UserValidationCostomException.ExceptionType.EMPTY_INPUT, "Input Should Not Be Empty");
                 }
-                if (Regex.IsMatch(name, validateName))
+                if (result)
                     return "Input Valid";
 
                 else
-                    throw new UserValidationCoutomException(UserValidationCoutomException.ExceptionType.INVALID_INPUT, "Input Is Not Valid");
+                    throw new UserValidationCostomException(UserValidationCostomException.ExceptionType.INVALID_INPUT, "Input Is Not Valid");
 
             }
             catch (NullReferenceException)
             {
-                throw new UserValidationCoutomException(UserValidationCoutomException.ExceptionType.NULL_INPUT, "Input Should Not Be Null");
+                throw new UserValidationCostomException(UserValidationCostomException.ExceptionType.NULL_INPUT, "Input Should Not Be Null");
             }
         }
         public string CheckEmail(string email)
         {
-            string validateEmail = "^[0-9a-zA-Z]+[./+_-]{0,1}[0-9a-zA-Z]+[@][a-zA-Z0-9-]+[.][a-zA-Z]{2,}([.][a-zA-Z]{2,}){0,1}$";
+            bool EmailPattern(string FirstNamePattern) => ValidateEmail.IsMatch(email);
+            bool result = EmailPattern(email);
             try
             {
                 if (email.Equals(string.Empty))
                 {
-                    throw new UserValidationCoutomException(UserValidationCoutomException.ExceptionType.EMPTY_INPUT, "Input Should Not Be Empty");
+                    throw new UserValidationCostomException(UserValidationCostomException.ExceptionType.EMPTY_INPUT, "Input Should Not Be Empty");
                 }
-                if (Regex.IsMatch(email, validateEmail))
+                if (result)
                     return "Input Valid";
                 else
-                    throw new UserValidationCoutomException(UserValidationCoutomException.ExceptionType.INVALID_INPUT, "Input Is Not Valid");
+                    throw new UserValidationCostomException(UserValidationCostomException.ExceptionType.INVALID_INPUT, "Input Is Not Valid");
 
             }
             catch (NullReferenceException)
             {
-                throw new UserValidationCoutomException(UserValidationCoutomException.ExceptionType.NULL_INPUT, "Input Should Not Be Null");
+                throw new UserValidationCostomException(UserValidationCostomException.ExceptionType.NULL_INPUT, "Input Should Not Be Null");
             }
         }
         public string CheckMobileNo(string mobile)
         {
-            string validateMobile = "^[0-9]{2}[ ][6-9][0-9]{9}$";
+            bool MobileNoPattern(string MobileNotNamePattern) => ValidateMobile.IsMatch(mobile);
+            bool result = MobileNoPattern(mobile);
             try
             {
                 if (mobile.Equals(string.Empty))
                 {
-                    throw new UserValidationCoutomException(UserValidationCoutomException.ExceptionType.EMPTY_INPUT, "Input Should Not Be Empty");
+                    throw new UserValidationCostomException(UserValidationCostomException.ExceptionType.EMPTY_INPUT, "Input Should Not Be Empty");
                 }
-                if (Regex.IsMatch(mobile, validateMobile))
+                if (result)
                     return "Input Valid";
                 else
-                    throw new UserValidationCoutomException(UserValidationCoutomException.ExceptionType.INVALID_INPUT, "Input Is Not Valid");
+                    throw new UserValidationCostomException(UserValidationCostomException.ExceptionType.INVALID_INPUT, "Input Is Not Valid");
             }
             catch (NullReferenceException)
             {
-                throw new UserValidationCoutomException(UserValidationCoutomException.ExceptionType.NULL_INPUT, "Input Should Not Be Null");
+                throw new UserValidationCostomException(UserValidationCostomException.ExceptionType.NULL_INPUT, "Input Should Not Be Null");
             }
         }
 
         public string CheckPassword(string password)
         {
-            string validatepassword = "^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=[^!@#$%_]*[!@#$%_][^!@#$%_]*$)[A-Za-z0-9!@#$%_]{8,}$";
             try
             {
+                bool PasswordNPattern(string PasswordPattern) => Validatepassword.IsMatch(password);
+                bool result = PasswordNPattern(password);
                 if (password.Equals(string.Empty))
                 {
-                    throw new UserValidationCoutomException(UserValidationCoutomException.ExceptionType.EMPTY_INPUT, "Input Should Not Be Empty");
+                    throw new UserValidationCostomException(UserValidationCostomException.ExceptionType.EMPTY_INPUT, "Input Should Not Be Empty");
                 }
-                if (Regex.IsMatch(password, validatepassword))
+                if (result)
                     return "Input Valid";
                 else
-                    throw new UserValidationCoutomException(UserValidationCoutomException.ExceptionType.INVALID_INPUT, "Input Is Not Valid");
+                    throw new UserValidationCostomException(UserValidationCostomException.ExceptionType.INVALID_INPUT, "Input Is Not Valid");
             }
             catch (NullReferenceException)
             {
-                throw new UserValidationCoutomException(UserValidationCoutomException.ExceptionType.NULL_INPUT, "Input Should Not Be Null");
+                throw new UserValidationCostomException(UserValidationCostomException.ExceptionType.NULL_INPUT, "Input Should Not Be Null");
             }
         }
     }
